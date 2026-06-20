@@ -3,7 +3,7 @@
 ![Status](https://img.shields.io/badge/Status-Experimental-yellow)
 ![Focus](https://img.shields.io/badge/Focus-Game%20AI%20%7C%20Algorithms%20%7C%20Search%20Trees-blue)
 
-A lightweight **algorithm research branch** exploring core game AI techniques such as **Minimax decision making** and **Alpha-Beta pruning optimization**.
+A lightweight **algorithm research branch** exploring core game AI **Alpha-Beta pruning optimization**.
 
 This branch is used to prototype and understand AI logic before integrating it into larger projects like a full chess engine.
 
@@ -26,14 +26,13 @@ This repository is not a standalone game. It is a **learning and experimentation
 
 A fully playable console-based Tic-Tac-Toe implementation enhanced with:
 
-* Minimax algorithm
 * Alpha-Beta pruning optimization (in progress/experimental)
 * Perfect-play AI behavior
 * Move evaluation based on game outcome prediction
 
 ### Goals of this implementation
 
-* Compare raw Minimax vs Alpha-Beta performance
+* Observe Alpha-Beta performance
 * Understand branching factor reduction
 * Measure decision depth vs computation cost
 * Build reusable logic for future chess AI integration
@@ -42,36 +41,11 @@ A fully playable console-based Tic-Tac-Toe implementation enhanced with:
 
 ## Key Concepts Implemented
 
-### Minimax Algorithm
-
-* Simulates all possible game states
-* Chooses optimal move assuming perfect opponent play
-* Guarantees optimal outcome for deterministic games
-
 ### Alpha-Beta Pruning
 
 * Optimizes Minimax by eliminating unnecessary branches
 * Reduces search space without affecting correctness
 * Critical step toward scalable chess AI
-
----
-
-## File Structure
-
-```text
-ai-research/
-├── tictactoe/
-│   ├── minimax.py          # Basic Minimax implementation
-│   ├── alphabeta.py        # Optimized search with pruning
-│   ├── game.py             # CLI Tic-Tac-Toe game loop
-│   └── board.py            # Board utilities and state logic
-│
-├── experiments/
-│   ├── depth_analysis.py   # Search depth vs performance tests
-│   └── stats.py            # Node count comparisons
-│
-└── README.md
-```
 
 ---
 
