@@ -1,117 +1,122 @@
-# RETRO_♟_CHESS 
+# AI Research Lab — Minimax & Alpha-Beta Pruning
 
-![Status](https://img.shields.io/badge/Status-In%20Progress-orange) ![Technologies](https://img.shields.io/badge/Tech-HTML%20|%20CSS%20|%20JavaScript-blue)
+![Status](https://img.shields.io/badge/Status-Experimental-yellow)
+![Focus](https://img.shields.io/badge/Focus-Game%20AI%20%7C%20Algorithms%20%7C%20Search%20Trees-blue)
 
-A **fully functional, browser-based chess game** — no frameworks, no backend, no dependencies. Built for **clean gameplay, responsive design, and professional UI/UX**.
+A lightweight **algorithm research branch** exploring core game AI techniques such as **Minimax decision making** and **Alpha-Beta pruning optimization**.
 
----
-## Quick Start
-
-Open `index.html` in any modern browser. No server required.
+This branch is used to prototype and understand AI logic before integrating it into larger projects like a full chess engine.
 
 ---
 
-## Features
+## Purpose
 
-### Core Rules
-- Legal move validation for all piece types  
-- Check & checkmate detection  
-- Stalemate detection  
-- Castling — kingside and queenside  
-- En passant  
-- Pawn promotion (choose queen, rook, bishop, or knight)  
-- Turn-based play (white vs black)  
+This repository is not a standalone game. It is a **learning and experimentation space** for:
 
-### User Interface
-- Click to select a piece, click to move  
-- Visual move highlighting:  
-  - Dots for empty squares (legal moves)  
-  - Rings for capture targets  
-  - Highlighted selected square  
-- Check indicator (pulsing red on the king)  
-- Move history panel with algebraic notation (including `+` and `#`)  
-- Captured pieces display  
-- Board flip option (play from black’s perspective)  
-- New Game button  
-- Pawn promotion modal  
+* Game tree search algorithms
+* Optimal decision-making in turn-based games
+* Performance optimization using pruning techniques
+* Applying AI concepts to simple games (starting with Tic-Tac-Toe)
 
 ---
 
-## Theme / UI
-Inspired by **Chess.com Dark Mode**, adapted with navy and cream tones:
+## Current Experiment
 
-| Element          | Color / Value            |
-|-----------------|-------------------------|
-| Page background | `#312e2b`              |
-| Dark squares    | `#739552`               |
-| Light squares   | `#ebecd0`               |
-| White pieces    | `#ffffff`               |
-| Black pieces    | `#000000`               |
-| Move highlight  | yellow, 50% α           |
-| Selected square | yellow, 50% α           |
-| Capture ring    | translucent black       |
-| Check indicator | red, 80% α              |
-| Panels & status | `#262421` (dark panel) |
-| Buttons         | accent `#81b64c`, secondary `#363431` |
+### Tic-Tac-Toe AI
 
-Additional details:
-- Fully responsive board — squares and pieces scale for tablets and mobile.  
-- Pieces use **text-stroke and drop shadows** for contrast and depth.  
-- Promotion modal, move history, and controls match the dark mode aesthetic.  
+A fully playable console-based Tic-Tac-Toe implementation enhanced with:
+
+* Minimax algorithm
+* Alpha-Beta pruning optimization (in progress/experimental)
+* Perfect-play AI behavior
+* Move evaluation based on game outcome prediction
+
+### Goals of this implementation
+
+* Compare raw Minimax vs Alpha-Beta performance
+* Understand branching factor reduction
+* Measure decision depth vs computation cost
+* Build reusable logic for future chess AI integration
+
+---
+
+## Key Concepts Implemented
+
+### Minimax Algorithm
+
+* Simulates all possible game states
+* Chooses optimal move assuming perfect opponent play
+* Guarantees optimal outcome for deterministic games
+
+### Alpha-Beta Pruning
+
+* Optimizes Minimax by eliminating unnecessary branches
+* Reduces search space without affecting correctness
+* Critical step toward scalable chess AI
 
 ---
 
 ## File Structure
+
 ```text
-retro_hess/
-├── index.html           # Entry point
-├── README.md
-├── css/
-│   └── styles.css       # Dark navy/cream theme, responsive layout
-└── js/
-    ├── pieces.js        # Piece symbols, values, metadata
-    ├── rules.js         # Move generation, check detection, all special rules
-    ├── board.js         # Board creation and initial layout
-    ├── game.js          # Game state, move execution, history
-    ├── ui.js            # DOM rendering and event handling
-    └── main.js          # Bootstrap (DOMContentLoaded)
+ai-research/
+├── tictactoe/
+│   ├── minimax.py          # Basic Minimax implementation
+│   ├── alphabeta.py        # Optimized search with pruning
+│   ├── game.py             # CLI Tic-Tac-Toe game loop
+│   └── board.py            # Board utilities and state logic
+│
+├── experiments/
+│   ├── depth_analysis.py   # Search depth vs performance tests
+│   └── stats.py            # Node count comparisons
+│
+└── README.md
 ```
----
-
-## Architecture
-pieces.js ──► rules.js (pure logic, no DOM)
-board.js ──► │
-▼
-game.js (state machine)
-│
-▼
-ui.js (all DOM rendering)
-│
-main.js (entry point)
-
-
-- `rules.js` is **stateless and functional** — inputs: board + state; outputs: results only.  
-- `game.js` manages the **canonical game state** and exposes an immutable-update API.  
-- `ui.js` updates the DOM based on `game.js` state.  
-- `main.js` initializes the game on page load.
 
 ---
 
-## Extending the Game
-- **AI Opponent** — Add `ai.js` using `Rules.getAllLegalMoves(board, 'black', state)` with **minimax + alpha-beta pruning**.  
-- **Timers** — Add `clock.js` to count down per-player time, integrated with `Game.executeMove()`.  
-- **Persistence** — Save game state to `localStorage` after each move.  
-- **Undo/Redo** — Maintain a **state history array** and implement `undo()` / `redo()`.  
-- **Move Notation Export** — Export `state.moveHistory` in **PGN format**.
+## What I’m Learning Here
+
+* How AI evaluates future game states
+* Trade-offs between depth and performance
+* Why pruning is essential for complex games like chess
+* How to structure reusable AI modules
 
 ---
 
-## License
-— free to use, modify, and share.
+## Screenshot ![GAME](alpha-beta.png)
+
+## Future Integration
+
+The final goal is to port these concepts into:
+
+### Retro Chess AI Module
+
+Planned integration:
+
+* `ai.js` for move selection
+* Chess-specific evaluation function
+* Optimized Alpha-Beta pruning search
+* Iterative deepening for real-time play
 
 ---
 
-## Screenshot
-![GAME](retro_chess.png)
+## Next Steps
 
-**Note:** The UI theme is **inspired by Chess.com Dark Mode**
+* Extend Alpha-Beta to full chess move generator
+* Add heuristic evaluation functions
+* Implement depth-limited search
+* Compare performance against random move baseline
+* Visualize search tree (optional future upgrade)
+
+---
+
+## Related Project
+
+This work directly supports:
+
+**Retro Chess (Main Project)**
+A browser-based chess engine with full rule implementation and UI.
+
+This branch acts as the **algorithm sandbox** behind it.
+
