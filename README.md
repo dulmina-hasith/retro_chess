@@ -4,6 +4,7 @@
 
 A **fully functional, browser-based chess game** — no frameworks, no backend, no dependencies. Built for **clean gameplay, responsive design, and professional UI/UX**.
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-🚀_PLAY_NOW-81b64c?style=for-the-badge&logoColor=white)](https://dulmina-hasith.github.io/retro_chess/)
 ---
 ## Quick Start
 
