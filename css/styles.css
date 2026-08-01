@@ -391,6 +391,144 @@ body {
   transform: translateY(-2px);
 }
 
+/* ── Board position for animation overlay ─────────────────── */
+.chess-board { position: relative; }
+
+/* ── Piece movement animation ────────────────────────────── */
+.piece-flying {
+  position: absolute;
+  pointer-events: none;
+  z-index: 100;
+  transform: translate(0, 0);
+  transition: transform 0.20s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* offset so the glyph is centered on the square's center point */
+  margin-left: calc(var(--sq) * -0.5 + var(--sq) * 0.1);
+  margin-top:  calc(var(--sq) * -0.5 + var(--sq) * 0.05);
+}
+
+/* Piece land — quick scale pop when piece settles */
+@keyframes piece-land {
+  0%   { transform: scale(1.18); }
+  60%  { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+.piece-landing { animation: piece-land 0.22s ease forwards; }
+
+/* ── AI Panel ─────────────────────────────────────────────── */
+.ai-panel {
+  background: var(--panel-bg);
+  border-radius: 5px;
+  overflow: hidden;
+}
+.ai-panel-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-dim);
+  padding: 12px 16px 10px;
+  background: #211f1c;
+  border-bottom: 1px solid var(--border);
+  text-transform: uppercase;
+}
+.ai-options {
+  padding: 10px 16px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.ai-options.hidden { display: none; }
+.ai-section-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-dim);
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  margin-top: 4px;
+}
+
+/* Mode toggle */
+.mode-toggle {
+  display: flex;
+  padding: 10px 16px 10px;
+  gap: 8px;
+}
+.mode-btn {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 9px 6px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  background: var(--btn-secondary);
+  color: var(--text-dim);
+  transition: all 0.15s ease;
+}
+.mode-btn:hover { background: var(--btn-secondary-hover); color: var(--text-primary); }
+.mode-btn-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+/* Difficulty / side toggle */
+.diff-toggle {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+.diff-btn {
+  flex: 1;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 4px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  cursor: pointer;
+  background: var(--btn-secondary);
+  color: var(--text-dim);
+  transition: all 0.12s ease;
+}
+.diff-btn:hover { background: var(--btn-secondary-hover); color: var(--text-primary); }
+.diff-btn-active {
+  background: #4a4845;
+  border-color: var(--border-hover);
+  color: var(--text-primary);
+}
+
+/* Thinking indicator */
+.thinking-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 8px 10px;
+  background: #1a1916;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+}
+.thinking-bar.hidden { display: none; }
+
+.thinking-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: thinking-pulse 1.1s ease-in-out infinite;
+}
+.thinking-dot:nth-child(2) { animation-delay: 0.18s; }
+.thinking-dot:nth-child(3) { animation-delay: 0.36s; }
+@keyframes thinking-pulse {
+  0%,80%,100% { opacity: 0.2; transform: scale(0.85); }
+  40%          { opacity: 1;   transform: scale(1.1);  }
+}
+.thinking-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-left: 4px;
+  letter-spacing: 0.06em;
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 940px) {
   .game-container {

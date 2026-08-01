@@ -48,6 +48,39 @@
           <div class="player-label">WHITE</div>
           <div class="captured-pieces" id="white-captured"></div>
         </div>
+
+        <!-- AI Panel -->
+        <div class="ai-panel">
+          <div class="ai-panel-title">GAME MODE</div>
+
+          <div class="mode-toggle">
+            <button class="mode-btn mode-btn-active" data-mode="2p">2 PLAYER</button>
+            <button class="mode-btn" data-mode="ai">AI</button>
+          </div>
+
+          <div class="ai-options hidden" id="ai-options">
+            <div class="ai-section-label">DIFFICULTY</div>
+            <div class="diff-toggle">
+              <button class="diff-btn" data-diff="easy">EASY</button>
+              <button class="diff-btn diff-btn-active" data-diff="medium">MED</button>
+              <button class="diff-btn" data-diff="hard">HARD</button>
+            </div>
+
+            <div class="ai-section-label" style="margin-top:10px">PLAY AS</div>
+            <div class="diff-toggle">
+              <button class="diff-btn diff-btn-active" data-side="white">WHITE</button>
+              <button class="diff-btn" data-side="black">BLACK</button>
+            </div>
+
+            <div class="thinking-bar hidden" id="thinking-bar">
+              <span class="thinking-dot"></span>
+              <span class="thinking-dot"></span>
+              <span class="thinking-dot"></span>
+              <span class="thinking-label">AI THINKING</span>
+            </div>
+          </div>
+        </div>
+
         <div class="controls">
           <button id="btn-new-game" class="btn btn-primary">NEW GAME</button>
           <button id="btn-flip-board" class="btn btn-secondary">FLIP BOARD</button>
@@ -75,6 +108,7 @@
   <script src="js/rules.js"></script>
   <script src="js/board.js"></script>
   <script src="js/game.js"></script>
+  <script src="js/ai.js"></script>
   <script src="js/ui.js"></script>
   <script src="js/main.js"></script>
 </body>
