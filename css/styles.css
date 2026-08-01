@@ -64,6 +64,19 @@ body {
   text-align: center;
 }
 
+.game-link a {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.game-link a:hover,
+.game-link a:visited {
+  color: var(--text-primary);
+}
+
 /* ── Game Layout ────────────────────────────────────────────── */
 .game-container {
   display: flex;
