@@ -1,6 +1,6 @@
 # RETRO_♟_CHESS 
 
-![Status](https://img.shields.io/badge/Status-In%20Progress-orange) ![Technologies](https://img.shields.io/badge/Tech-HTML%20|%20CSS%20|%20JavaScript-blue)
+[![Play Chess](https://img.shields.io/badge/Play_Chess-LIVE_DEMO-81b64c?style=for-the-badge&logo=lichess&logoColor=white)](https://dulmina-hasith.github.io/retro_chess/)
 
 A **fully functional, browser-based chess game** — no frameworks, no backend, no dependencies. Built for **clean gameplay, responsive design, and professional UI/UX**.
 
